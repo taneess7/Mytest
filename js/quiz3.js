@@ -68,96 +68,131 @@ document.addEventListener("DOMContentLoaded", function () {
     q20: "JDBC驅動程式的類型包括Type 1 Driver（使用JDBC-ODBC橋接器連接資料庫）、Type 2 Driver（部分使用Java、部分使用原生代碼的驅動程式）、Type 3 Driver（純Java實現，通過中間層協議連接資料庫）和Type 4 Driver（純Java實現，直接轉換為資料庫網路協議的驅動程式）。JDBC規範中沒有定義Type 5驅動程式，這不是標準的JDBC驅動類型。",
   };
 
-  // 選取DOM元素
-  const quizForm = document.getElementById("quiz-form");
-  const resultsContainer = document.getElementById("results");
-  const scoreElement = document.getElementById("score");
-  const percentageElement = document.getElementById("percentage");
-  const detailedResultsElement = document.getElementById("detailed-results");
-  const retryButton = document.getElementById("retry-btn");
-
-  // 提交表單處理
-  quizForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // 隱藏表單，顯示結果
-    quizForm.classList.add("hidden");
-    resultsContainer.classList.remove("hidden");
-
-    // 計算分數
-    let score = 0;
-    let detailedHTML = "";
-
-    // 處理每一道題目
-    for (let questionId in correctAnswers) {
-      const correctAnswer = correctAnswers[questionId];
-      let userAnswer;
-      let isCorrect = false;
-
-      // 處理單選題
-      if (typeof correctAnswer === "string") {
-        userAnswer =
-          document.querySelector(`input[name="${questionId}"]:checked`)
-            ?.value || "未作答";
-        isCorrect = userAnswer === correctAnswer;
-      }
-      // 處理多選題
-      else {
-        const checkboxes = document.querySelectorAll(
-          `input[name="${questionId}"]:checked`
-        );
-        userAnswer = Array.from(checkboxes).map((checkbox) => checkbox.value);
-
-        // 檢查用戶答案是否與正確答案完全一致（數量相同且包含相同元素）
-        isCorrect =
-          userAnswer.length === correctAnswer.length &&
-          correctAnswer.every((answer) => userAnswer.includes(answer));
-
-        // 將用戶答案轉換為字串，方便顯示
-        userAnswer = userAnswer.length > 0 ? userAnswer.join(", ") : "未作答";
-      }
-
-      // 如果答對了，加分
-      if (isCorrect) score++;
-
-      // 生成這道題的詳細結果HTML
-      detailedHTML += `
-                <div class="result-item ${isCorrect ? "correct" : "incorrect"}">
-                    <div class="question-text">問題 ${questionId.substring(
-                      1
-                    )}</div>
-                    <div class="correct-answer">正確答案: ${
-                      Array.isArray(correctAnswer)
-                        ? correctAnswer.join(", ")
-                        : correctAnswer
-                    }</div>
-                    <div class="user-answer ${
-                      isCorrect ? "" : "wrong"
-                    }">您的答案: ${userAnswer}</div>
-                    <div class="answer-explanation">${
-                      explanations[questionId] || ""
-                    }</div>
-                </div>
-            `;
-    }
-
-    // 更新總分和百分比
-    const totalQuestions = Object.keys(correctAnswers).length;
-    scoreElement.textContent = score;
-    percentageElement.textContent =
-      Math.round((score / totalQuestions) * 100) + "%";
-
-    // 顯示詳細結果
-    detailedResultsElement.innerHTML = detailedHTML;
-  });
-
-  // 重試按鈕處理
-  retryButton.addEventListener("click", function () {
-    // 隱藏結果，顯示表單
-    resultsContainer.classList.add("hidden");
-    quizForm.classList.remove("hidden");
-
-    // 重置所有表單元素
-    quizForm.reset();
-  });
+    // 選取DOM元素
+    const quizForm = document.getElementById('quiz-form');
+    const resultsContainer = document.getElementById('results');
+    const scoreElement = document.getElementById('score');
+    const percentageElement = document.getElementById('percentage');
+    const detailedResultsElement = document.getElementById('detailed-results');
+    const retryButton = document.getElementById('retry-btn');
+    
+    // 提交表單處理
+    quizForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // 隱藏表單，顯示結果
+        quizForm.classList.add('hidden');
+        resultsContainer.classList.remove('hidden');
+        
+        // 計算分數
+        let score = 0;
+        let detailedHTML = '';
+        
+        // 處理每一道題目
+        for (let questionId in correctAnswers) {
+            const correctAnswer = correctAnswers[questionId];
+            let userAnswer;
+            let isCorrect = false;
+            
+            // 獲取問題元素
+            const questionElement = document.getElementById(questionId);
+            // 獲取問題標題
+            const questionTitle = questionElement.querySelector('h3').textContent;
+            // 獲取所有選項
+            const options = Array.from(questionElement.querySelectorAll('.option'));
+            
+            // 處理單選題
+            if (typeof correctAnswer === 'string') {
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                userAnswer = selectedOption ? selectedOption.value : '未作答';
+                isCorrect = userAnswer === correctAnswer;
+                
+                // 生成選項HTML，標記正確答案和用戶答案
+                let optionsHTML = '<div class="all-options">';
+                options.forEach(option => {
+                    const input = option.querySelector('input');
+                    const optionValue = input.value;
+                    const optionText = option.querySelector('.option-text').textContent;
+                    const isUserSelected = userAnswer === optionValue;
+                    const isCorrectOption = correctAnswer === optionValue;
+                    
+                    optionsHTML += `
+                        <div class="option-result ${isUserSelected ? 'user-selected' : ''} ${isCorrectOption ? 'correct-option' : ''}">
+                            <span class="option-value">${optionText}</span>
+                            ${isUserSelected ? '<span class="user-mark">✓ 您的選擇</span>' : ''}
+                            ${isCorrectOption ? '<span class="correct-mark">✓ 正確答案</span>' : ''}
+                        </div>
+                    `;
+                });
+                optionsHTML += '</div>';
+                
+                // 生成這道題的詳細結果HTML
+                detailedHTML += `
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="question-text">${questionTitle}</div>
+                        ${optionsHTML}
+                        <div class="answer-explanation">${explanations[questionId] || ''}</div>
+                    </div>
+                `;
+            } 
+            // 處理多選題
+            else {
+                const checkboxes = document.querySelectorAll(`input[name="${questionId}"]:checked`);
+                userAnswer = Array.from(checkboxes).map(checkbox => checkbox.value);
+                
+                // 檢查用戶答案是否與正確答案完全一致
+                isCorrect = userAnswer.length === correctAnswer.length && 
+                            correctAnswer.every(answer => userAnswer.includes(answer));
+                
+                // 生成選項HTML，標記正確答案和用戶答案
+                let optionsHTML = '<div class="all-options">';
+                options.forEach(option => {
+                    const input = option.querySelector('input');
+                    const optionValue = input.value;
+                    const optionText = option.querySelector('.option-text').textContent;
+                    const isUserSelected = userAnswer.includes(optionValue);
+                    const isCorrectOption = correctAnswer.includes(optionValue);
+                    
+                    optionsHTML += `
+                        <div class="option-result ${isUserSelected ? 'user-selected' : ''} ${isCorrectOption ? 'correct-option' : ''}">
+                            <span class="option-value">${optionText}</span>
+                            ${isUserSelected ? '<span class="user-mark">✓ 您的選擇</span>' : ''}
+                            ${isCorrectOption ? '<span class="correct-mark">✓ 正確答案</span>' : ''}
+                        </div>
+                    `;
+                });
+                optionsHTML += '</div>';
+                
+                // 生成這道題的詳細結果HTML
+                detailedHTML += `
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="question-text">${questionTitle}</div>
+                        ${optionsHTML}
+                        <div class="answer-explanation">${explanations[questionId] || ''}</div>
+                    </div>
+                `;
+            }
+            
+            // 如果答對了，加分
+            if (isCorrect) score++;
+        }
+        
+        // 更新總分和百分比
+        const totalQuestions = Object.keys(correctAnswers).length;
+        scoreElement.textContent = score;
+        percentageElement.textContent = Math.round((score / totalQuestions) * 100) + '%';
+        
+        // 顯示詳細結果
+        detailedResultsElement.innerHTML = detailedHTML;
+    });
+    
+    // 重試按鈕處理
+    retryButton.addEventListener('click', function() {
+        // 隱藏結果，顯示表單
+        resultsContainer.classList.add('hidden');
+        quizForm.classList.remove('hidden');
+        
+        // 重置所有表單元素
+        quizForm.reset();
+    });
 });

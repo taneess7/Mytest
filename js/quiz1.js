@@ -94,36 +94,87 @@ document.addEventListener('DOMContentLoaded', function() {
             let userAnswer;
             let isCorrect = false;
             
+            // 獲取問題元素
+            const questionElement = document.getElementById(questionId);
+            // 獲取問題標題
+            const questionTitle = questionElement.querySelector('h3').textContent;
+            // 獲取所有選項
+            const options = Array.from(questionElement.querySelectorAll('.option'));
+            
             // 處理單選題
             if (typeof correctAnswer === 'string') {
-                userAnswer = document.querySelector(`input[name="${questionId}"]:checked`)?.value || '未作答';
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                userAnswer = selectedOption ? selectedOption.value : '未作答';
                 isCorrect = userAnswer === correctAnswer;
+                
+                // 生成選項HTML，標記正確答案和用戶答案
+                let optionsHTML = '<div class="all-options">';
+                options.forEach(option => {
+                    const input = option.querySelector('input');
+                    const optionValue = input.value;
+                    const optionText = option.querySelector('.option-text').textContent;
+                    const isUserSelected = userAnswer === optionValue;
+                    const isCorrectOption = correctAnswer === optionValue;
+                    
+                    optionsHTML += `
+                        <div class="option-result ${isUserSelected ? 'user-selected' : ''} ${isCorrectOption ? 'correct-option' : ''}">
+                            <span class="option-value">${optionText}</span>
+                            ${isUserSelected ? '<span class="user-mark">✓ 您的選擇</span>' : ''}
+                            ${isCorrectOption ? '<span class="correct-mark">✓ 正確答案</span>' : ''}
+                        </div>
+                    `;
+                });
+                optionsHTML += '</div>';
+                
+                // 生成這道題的詳細結果HTML
+                detailedHTML += `
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="question-text">${questionTitle}</div>
+                        ${optionsHTML}
+                        <div class="answer-explanation">${explanations[questionId] || ''}</div>
+                    </div>
+                `;
             } 
             // 處理多選題
             else {
                 const checkboxes = document.querySelectorAll(`input[name="${questionId}"]:checked`);
                 userAnswer = Array.from(checkboxes).map(checkbox => checkbox.value);
                 
-                // 檢查用戶答案是否與正確答案完全一致（數量相同且包含相同元素）
+                // 檢查用戶答案是否與正確答案完全一致
                 isCorrect = userAnswer.length === correctAnswer.length && 
                             correctAnswer.every(answer => userAnswer.includes(answer));
                 
-                // 將用戶答案轉換為字串，方便顯示
-                userAnswer = userAnswer.length > 0 ? userAnswer.join(', ') : '未作答';
+                // 生成選項HTML，標記正確答案和用戶答案
+                let optionsHTML = '<div class="all-options">';
+                options.forEach(option => {
+                    const input = option.querySelector('input');
+                    const optionValue = input.value;
+                    const optionText = option.querySelector('.option-text').textContent;
+                    const isUserSelected = userAnswer.includes(optionValue);
+                    const isCorrectOption = correctAnswer.includes(optionValue);
+                    
+                    optionsHTML += `
+                        <div class="option-result ${isUserSelected ? 'user-selected' : ''} ${isCorrectOption ? 'correct-option' : ''}">
+                            <span class="option-value">${optionText}</span>
+                            ${isUserSelected ? '<span class="user-mark">✓ 您的選擇</span>' : ''}
+                            ${isCorrectOption ? '<span class="correct-mark">✓ 正確答案</span>' : ''}
+                        </div>
+                    `;
+                });
+                optionsHTML += '</div>';
+                
+                // 生成這道題的詳細結果HTML
+                detailedHTML += `
+                    <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
+                        <div class="question-text">${questionTitle}</div>
+                        ${optionsHTML}
+                        <div class="answer-explanation">${explanations[questionId] || ''}</div>
+                    </div>
+                `;
             }
             
             // 如果答對了，加分
             if (isCorrect) score++;
-            
-            // 生成這道題的詳細結果HTML
-            detailedHTML += `
-                <div class="result-item ${isCorrect ? 'correct' : 'incorrect'}">
-                    <div class="question-text">問題 ${questionId.substring(1)}</div>
-                    <div class="correct-answer">正確答案: ${Array.isArray(correctAnswer) ? correctAnswer.join(', ') : correctAnswer}</div>
-                    <div class="user-answer ${isCorrect ? '' : 'wrong'}">您的答案: ${userAnswer}</div>
-                    <div class="answer-explanation">${explanations[questionId] || ''}</div>
-                </div>
-            `;
         }
         
         // 更新總分和百分比

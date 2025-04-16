@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   background-color: #f5f7fa;
   color: #333;
   line-height: 1.6;
@@ -289,7 +289,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
   .quiz-container,
   .home-container {
     margin: 15px;
@@ -303,4 +302,72 @@ footer {
   .quiz-cards {
     flex-direction: column;
   }
+}
+
+/* 選項結果樣式 */
+.all-options {
+  margin: 10px 0 15px;
+  border-left: 3px solid #ddd;
+  padding-left: 15px;
+}
+
+.option-result {
+  padding: 8px 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+}
+
+.user-selected {
+  background-color: #ffebee;
+}
+
+.correct-option {
+  background-color: #e8f5e9;
+}
+
+.user-selected.correct-option {
+  background-color: #dcedc8;
+}
+
+.option-value {
+  flex: 1;
+}
+
+.user-mark {
+  color: #e57373;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.correct-mark {
+  color: #4caf50;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* 當兩個標記同時出現時調整間距 */
+.user-mark + .correct-mark {
+  margin-left: 5px;
+}
+
+/* 使問題文字更醒目 */
+.question-text {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+/* 改善解析部分的可讀性 */
+.answer-explanation {
+  background-color: #f0f7ff;
+  border-left: 4px solid #3498db;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  line-height: 1.5;
 }
