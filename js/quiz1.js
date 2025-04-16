@@ -137,4 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 重試按鈕處理
     retryButton.addEventListener('click', function() {
-        // 隱藏結果，顯示表
+        // 隱藏結果，顯示表單
+        resultsContainer.classList.add('hidden');
+        quizForm.classList.remove('hidden');
+        
+        // 重置所有表單元素
+        quizForm.reset();
+    });
+});
