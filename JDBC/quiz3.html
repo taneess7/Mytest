@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JDBC練習二 | JDBC練習測驗</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>JDBC練習三 | JDBC練習測驗</title>
+    <link rel="stylesheet" href="../css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
       rel="stylesheet" />
@@ -13,21 +13,34 @@
     <!-- 導覽列 -->
     <div class="navbar">
       <div class="container">
-        <a href="index.html" class="logo">JDBC練習測驗</a>
-        <ul class="nav-links">
-          <li><a href="quiz1.html">JDBC練習一</a></li>
-          <li><a href="quiz2.html">JDBC練習二</a></li>
-          <li><a href="quiz3.html">JDBC練習三</a></li>
+        <a href="../index.html" class="logo">小譚的練習測驗</a>
+        <ul class="menu">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">JAVA</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">JAVAEE</a></li>
+              <li class="dropdown">
+                <a href="index.html" class="dropdown-toggle">JDBC</a>
+                <ul class="dropdown-menu submenu">
+                  <li><a href="quiz1.html">JDBC練習一</a></li>
+                  <li><a href="quiz2.html">JDBC練習二</a></li>
+                  <li><a href="quiz3.html">JDBC練習三</a></li>
+                </ul>
+              </li>
+              <li><a href="#">基礎JAVA</a></li>
+            </ul>
+          </li>
+          <li><a href="../Agille/index.html">敏捷開發</a></li>
         </ul>
       </div>
     </div>
 
     <div class="quiz-container">
-      <h1>JDBC與NoSQL測驗 - 練習二</h1>
+      <h1>JDBC與NoSQL測驗 - 練習三</h1>
 
       <div class="instructions">
         <p>
-          本測驗共有20題，包含12題單選題和8題多選題，請選擇您認為正確的答案，完成後點擊「提交答案」按鈕。
+          本測驗共有20題，請選擇您認為正確的答案，完成後點擊「提交答案」按鈕。
         </p>
       </div>
 
@@ -38,48 +51,52 @@
 
           <!-- 問題1 -->
           <div class="question" id="q1">
-            <h3>1. 在JDBC中，javax.sql包是什麼時候引入的？</h3>
+            <h3>1. 關於javax.sql套件的敘述，何者正確？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q1" value="A" />
-                <span class="option-text">(A) 與Java 1.0一起引入</span>
+                <span class="option-text">(A) 它是JDBC 1.0的一部分</span>
               </label>
               <label class="option">
                 <input type="radio" name="q1" value="B" />
                 <span class="option-text"
-                  >(B) 在JDBC 2.0中作為標準擴展API引入</span
+                  >(B) 它是JDBC 2.0引入的標準擴展API</span
                 >
               </label>
               <label class="option">
                 <input type="radio" name="q1" value="C" />
-                <span class="option-text">(C) 在JDBC 3.0中作為核心API引入</span>
+                <span class="option-text"
+                  >(C) 它只提供基本的資料庫連接功能</span
+                >
               </label>
               <label class="option">
                 <input type="radio" name="q1" value="D" />
-                <span class="option-text">(D) 在JDBC 4.0中引入</span>
+                <span class="option-text">(D) 它主要用於處理SQL語法的優化</span>
               </label>
             </div>
           </div>
 
           <!-- 問題2 -->
           <div class="question" id="q2">
-            <h3>2. Connection接口在JDBC架構中扮演什麼角色？</h3>
+            <h3>2. Connection介面在JDBC中的主要用途是什麼？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q2" value="A" />
-                <span class="option-text">(A) 執行SQL語句</span>
+                <span class="option-text">(A) 用於執行SQL語句</span>
               </label>
               <label class="option">
                 <input type="radio" name="q2" value="B" />
-                <span class="option-text">(B) 管理資料庫連接</span>
+                <span class="option-text">(B) 用於管理資料庫連接及交易</span>
               </label>
               <label class="option">
                 <input type="radio" name="q2" value="C" />
-                <span class="option-text">(C) 提供與資料庫之間的會話</span>
+                <span class="option-text"
+                  >(C) 用於將Java物件與資料庫表映射</span
+                >
               </label>
               <label class="option">
                 <input type="radio" name="q2" value="D" />
-                <span class="option-text">(D) 處理結果集</span>
+                <span class="option-text">(D) 用於解析SQL語法錯誤</span>
               </label>
             </div>
           </div>
@@ -87,113 +104,29 @@
           <!-- 問題3 -->
           <div class="question" id="q3">
             <h3>
-              3. 如果在創建Statement時未指定ResultSet類型參數，預設值為何？
+              3. 若在創建Statement時未指定ResultSet類型和並發參數，預設值為何？
             </h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q3" value="A" />
-                <span class="option-text">(A) TYPE_FORWARD_ONLY</span>
-              </label>
-              <label class="option">
-                <input type="radio" name="q3" value="B" />
-                <span class="option-text">(B) TYPE_SCROLL_INSENSITIVE</span>
-              </label>
-              <label class="option">
-                <input type="radio" name="q3" value="C" />
-                <span class="option-text">(C) TYPE_SCROLL_SENSITIVE</span>
-              </label>
-              <label class="option">
-                <input type="radio" name="q3" value="D" />
-                <span class="option-text">(D) 沒有預設值，必須明確指定</span>
-              </label>
-            </div>
-          </div>
-
-          <!-- 問題4 -->
-          <div class="question" id="q4">
-            <h3>4. ResultSet的CONCUR_UPDATABLE常數代表什麼意思？</h3>
-            <div class="options">
-              <label class="option">
-                <input type="radio" name="q4" value="A" />
-                <span class="option-text">(A) 結果集是唯讀的</span>
-              </label>
-              <label class="option">
-                <input type="radio" name="q4" value="B" />
-                <span class="option-text"
-                  >(B) 結果集可以更新，如插入、更新與刪除</span
-                >
-              </label>
-              <label class="option">
-                <input type="radio" name="q4" value="C" />
-                <span class="option-text">(C) 結果集可以向前或向後滾動</span>
-              </label>
-              <label class="option">
-                <input type="radio" name="q4" value="D" />
-                <span class="option-text"
-                  >(D) 結果集會反映資料庫的實時更改</span
-                >
-              </label>
-            </div>
-          </div>
-
-          <!-- 問題5 -->
-          <div class="question" id="q5">
-            <h3>
-              5.
-              下列哪個JDBC驅動程式類型是純Java實現，直接將JDBC調用轉換為資料庫原生網路協議的？
-            </h3>
-            <div class="options">
-              <label class="option">
-                <input type="radio" name="q5" value="A" />
-                <span class="option-text"
-                  >(A) Type 1: JDBC-ODBC Bridge驅動程式</span
-                >
-              </label>
-              <label class="option">
-                <input type="radio" name="q5" value="B" />
-                <span class="option-text">(B) Type 2: Native API驅動程式</span>
-              </label>
-              <label class="option">
-                <input type="radio" name="q5" value="C" />
-                <span class="option-text"
-                  >(C) Type 3: Network Protocol驅動程式</span
-                >
-              </label>
-              <label class="option">
-                <input type="radio" name="q5" value="D" />
-                <span class="option-text"
-                  >(D) Type 4: Native Protocol驅動程式</span
-                >
-              </label>
-            </div>
-          </div>
-
-          <!-- 問題6 -->
-          <div class="question" id="q6">
-            <h3>
-              6. 在JDBC中，若未設定ResultSet的類型和並發性參數，預設組合為何？
-            </h3>
-            <div class="options">
-              <label class="option">
-                <input type="radio" name="q6" value="A" />
                 <span class="option-text"
                   >(A) TYPE_FORWARD_ONLY和CONCUR_READ_ONLY</span
                 >
               </label>
               <label class="option">
-                <input type="radio" name="q6" value="B" />
+                <input type="radio" name="q3" value="B" />
                 <span class="option-text"
                   >(B) TYPE_SCROLL_INSENSITIVE和CONCUR_READ_ONLY</span
                 >
               </label>
               <label class="option">
-                <input type="radio" name="q6" value="C" />
+                <input type="radio" name="q3" value="C" />
                 <span class="option-text"
                   >(C) TYPE_FORWARD_ONLY和CONCUR_UPDATABLE</span
                 >
               </label>
               <label class="option">
-                <input type="radio" name="q6" value="D" />
+                <input type="radio" name="q3" value="D" />
                 <span class="option-text"
                   >(D) TYPE_SCROLL_SENSITIVE和CONCUR_UPDATABLE</span
                 >
@@ -201,142 +134,225 @@
             </div>
           </div>
 
+          <!-- 問題4 -->
+          <div class="question" id="q4">
+            <h3>4. 下列哪一項不是ACID特性的一部分？</h3>
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="q4" value="A" />
+                <span class="option-text">(A) Atomicity（原子性）</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="q4" value="B" />
+                <span class="option-text">(B) Consistency（一致性）</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="q4" value="C" />
+                <span class="option-text">(C) Integrity（完整性）</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="q4" value="D" />
+                <span class="option-text">(D) Durability（持久性）</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 問題5 -->
+          <div class="question" id="q5">
+            <h3>5. 在JDBC中，交易的隔離行為是指什麼？</h3>
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="q5" value="A" />
+                <span class="option-text"
+                  >(A) 不同用戶的交易必須在不同的資料庫實例中執行</span
+                >
+              </label>
+              <label class="option">
+                <input type="radio" name="q5" value="B" />
+                <span class="option-text"
+                  >(B) 交易必須由單一連線物件完成，且不可與其他使用者共用</span
+                >
+              </label>
+              <label class="option">
+                <input type="radio" name="q5" value="C" />
+                <span class="option-text">(C) 交易必須在單一SQL語句中完成</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="q5" value="D" />
+                <span class="option-text"
+                  >(D) 交易必須由相同的驅動程式處理</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <!-- 問題6 -->
+          <div class="question" id="q6">
+            <h3>6. 下列哪個不是JDBC的Type 4驅動程式特性？</h3>
+            <div class="options">
+              <label class="option">
+                <input type="radio" name="q6" value="A" />
+                <span class="option-text">(A) 完全使用Java編寫</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="q6" value="B" />
+                <span class="option-text"
+                  >(B) 直接將JDBC呼叫轉換為資料庫特定的網路協議</span
+                >
+              </label>
+              <label class="option">
+                <input type="radio" name="q6" value="C" />
+                <span class="option-text">(C) 需要額外的中介軟體</span>
+              </label>
+              <label class="option">
+                <input type="radio" name="q6" value="D" />
+                <span class="option-text">(D) 通常提供最佳的性能</span>
+              </label>
+            </div>
+          </div>
+
           <!-- 問題7 -->
           <div class="question" id="q7">
-            <h3>7. DataSource接口相較於DriverManager的主要優勢是什麼？</h3>
+            <h3>7. 下列哪個方法用於從ResultSet獲取數據？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q7" value="A" />
-                <span class="option-text">(A) 更快的連接速度</span>
+                <span class="option-text">(A) fetch()</span>
               </label>
               <label class="option">
                 <input type="radio" name="q7" value="B" />
-                <span class="option-text">(B) 支援連接池和分散式事務處理</span>
+                <span class="option-text">(B) retrieve()</span>
               </label>
               <label class="option">
                 <input type="radio" name="q7" value="C" />
-                <span class="option-text">(C) 更簡單的API</span>
+                <span class="option-text">(C) getString()</span>
               </label>
               <label class="option">
                 <input type="radio" name="q7" value="D" />
-                <span class="option-text">(D) 不需要驅動程式</span>
+                <span class="option-text">(D) pullData()</span>
               </label>
             </div>
           </div>
 
           <!-- 問題8 -->
           <div class="question" id="q8">
-            <h3>8. 在JDBC中，以下哪個方法用於執行SELECT查詢？</h3>
+            <h3>8. PreparedStatement與Statement比較，下列描述何者正確？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q8" value="A" />
-                <span class="option-text">(A) executeUpdate()</span>
+                <span class="option-text"
+                  >(A) PreparedStatement不能用於執行查詢操作</span
+                >
               </label>
               <label class="option">
                 <input type="radio" name="q8" value="B" />
-                <span class="option-text">(B) executeQuery()</span>
+                <span class="option-text"
+                  >(B) PreparedStatement執行速度通常較慢</span
+                >
               </label>
               <label class="option">
                 <input type="radio" name="q8" value="C" />
-                <span class="option-text">(C) executeBatch()</span>
+                <span class="option-text"
+                  >(C) PreparedStatement可以防止SQL注入攻擊</span
+                >
               </label>
               <label class="option">
                 <input type="radio" name="q8" value="D" />
-                <span class="option-text">(D) execute()</span>
+                <span class="option-text"
+                  >(D) PreparedStatement不支援參數化查詢</span
+                >
               </label>
             </div>
           </div>
 
           <!-- 問題9 -->
           <div class="question" id="q9">
-            <h3>9. NoSQL資料庫Redis主要是哪種類型的資料庫？</h3>
+            <h3>9. BatchUpdate的主要優點是什麼？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q9" value="A" />
-                <span class="option-text">(A) 文檔型(Document)</span>
+                <span class="option-text">(A) 提高多個更新操作的執行效率</span>
               </label>
               <label class="option">
                 <input type="radio" name="q9" value="B" />
-                <span class="option-text">(B) 鍵值對型(Key-Value)</span>
+                <span class="option-text">(B) 減少記憶體使用量</span>
               </label>
               <label class="option">
                 <input type="radio" name="q9" value="C" />
-                <span class="option-text">(C) 列族型(Column-Family)</span>
+                <span class="option-text">(C) 增加數據庫連接的數量</span>
               </label>
               <label class="option">
                 <input type="radio" name="q9" value="D" />
-                <span class="option-text">(D) 圖形型(Graph)</span>
+                <span class="option-text">(D) 自動處理交易隔離級別</span>
               </label>
             </div>
           </div>
 
           <!-- 問題10 -->
           <div class="question" id="q10">
-            <h3>10. 在JDBC中使用PreparedStatement的主要優點是什麼？</h3>
+            <h3>10. 下列哪個方法不屬於Connection介面？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q10" value="A" />
-                <span class="option-text">(A) 減少代碼量</span>
+                <span class="option-text">(A) createStatement()</span>
               </label>
               <label class="option">
                 <input type="radio" name="q10" value="B" />
-                <span class="option-text">(B) 提高性能並防止SQL注入攻擊</span>
+                <span class="option-text">(B) prepareStatement()</span>
               </label>
               <label class="option">
                 <input type="radio" name="q10" value="C" />
-                <span class="option-text">(C) 自動處理事務</span>
+                <span class="option-text">(C) executeQuery()</span>
               </label>
               <label class="option">
                 <input type="radio" name="q10" value="D" />
-                <span class="option-text">(D) 減少記憶體使用</span>
+                <span class="option-text">(D) setAutoCommit()</span>
               </label>
             </div>
           </div>
 
           <!-- 問題11 -->
           <div class="question" id="q11">
-            <h3>11. 資料庫連接池的主要目的是什麼？</h3>
+            <h3>11. JDBC中使用DatabaseMetaData的主要目的是什麼？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q11" value="A" />
-                <span class="option-text">(A) 減少SQL查詢執行時間</span>
+                <span class="option-text">(A) 取得關於資料庫的信息</span>
               </label>
               <label class="option">
                 <input type="radio" name="q11" value="B" />
-                <span class="option-text"
-                  >(B) 減少建立和關閉資料庫連接的開銷</span
-                >
+                <span class="option-text">(B) 記錄JDBC操作日誌</span>
               </label>
               <label class="option">
                 <input type="radio" name="q11" value="C" />
-                <span class="option-text">(C) 確保資料一致性</span>
+                <span class="option-text">(C) 處理大型二進制數據</span>
               </label>
               <label class="option">
                 <input type="radio" name="q11" value="D" />
-                <span class="option-text">(D) 提高SQL查詢的精確性</span>
+                <span class="option-text">(D) 優化SQL查詢</span>
               </label>
             </div>
           </div>
 
           <!-- 問題12 -->
           <div class="question" id="q12">
-            <h3>12. CallableStatement接口主要用於什麼目的？</h3>
+            <h3>12. DataSource相較於DriverManager的主要優點是什麼？</h3>
             <div class="options">
               <label class="option">
                 <input type="radio" name="q12" value="A" />
-                <span class="option-text">(A) 執行預處理SQL語句</span>
+                <span class="option-text">(A) 支援連接池功能</span>
               </label>
               <label class="option">
                 <input type="radio" name="q12" value="B" />
-                <span class="option-text">(B) 調用資料庫存儲過程</span>
+                <span class="option-text">(B) 可以執行更複雜的SQL查詢</span>
               </label>
               <label class="option">
                 <input type="radio" name="q12" value="C" />
-                <span class="option-text">(C) 執行批量更新</span>
+                <span class="option-text">(C) 提供更多的驅動程式選項</span>
               </label>
               <label class="option">
                 <input type="radio" name="q12" value="D" />
-                <span class="option-text">(D) 處理大型資料</span>
+                <span class="option-text">(D) 簡化SQL語法</span>
               </label>
             </div>
           </div>
@@ -368,64 +384,74 @@
               </label>
               <label class="option">
                 <input type="checkbox" name="q13" value="E" />
-                <span class="option-text">(E) TYPE_BACKWARD_ONLY</span>
+                <span class="option-text">(E) TYPE_BIDIRECTIONAL</span>
               </label>
             </div>
           </div>
 
           <!-- 問題14 -->
           <div class="question" id="q14">
-            <h3>
-              14.
-              關於ResultSet的並發性參數，以下哪些是有效的？（選擇所有正確答案）
-            </h3>
+            <h3>14. 下列哪些屬於ACID特性？（選擇所有正確答案）</h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q14" value="A" />
-                <span class="option-text">(A) CONCUR_READ_ONLY</span>
+                <span class="option-text">(A) Atomicity（原子性）</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q14" value="B" />
-                <span class="option-text">(B) CONCUR_UPDATABLE</span>
+                <span class="option-text">(B) Consistency（一致性）</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q14" value="C" />
-                <span class="option-text">(C) CONCUR_WRITABLE</span>
+                <span class="option-text"
+                  >(C) Isolation behavior（隔離行為）</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q14" value="D" />
-                <span class="option-text">(D) CONCUR_MODIFY</span>
+                <span class="option-text">(D) Durability（持久性）</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q14" value="E" />
-                <span class="option-text">(E) CONCUR_INSERT_ONLY</span>
+                <span class="option-text">(E) Security（安全性）</span>
               </label>
             </div>
           </div>
 
           <!-- 問題15 -->
           <div class="question" id="q15">
-            <h3>15. javax.sql包提供的功能包括哪些？（選擇所有正確答案）</h3>
+            <h3>
+              15. 關於JDBC的批次更新(Batch
+              Update)，下列哪些敘述是正確的？（選擇所有正確答案）
+            </h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q15" value="A" />
-                <span class="option-text">(A) 連接池支援</span>
+                <span class="option-text"
+                  >(A) 使用addBatch()方法添加SQL語句</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q15" value="B" />
-                <span class="option-text">(B) 分散式事務</span>
+                <span class="option-text"
+                  >(B) 使用executeBatch()方法執行批次處理</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q15" value="C" />
-                <span class="option-text">(C) 行動式代理程式</span>
+                <span class="option-text"
+                  >(C) 可以顯著提高多個更新操作的效能</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q15" value="D" />
-                <span class="option-text">(D) DataSource接口</span>
+                <span class="option-text">(D) 只適用於INSERT語句</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q15" value="E" />
-                <span class="option-text">(E) RowSet接口</span>
+                <span class="option-text"
+                  >(E) 產生的異常可以透過BatchUpdateException獲取詳細資訊</span
+                >
               </label>
             </div>
           </div>
@@ -433,29 +459,30 @@
           <!-- 問題16 -->
           <div class="question" id="q16">
             <h3>
-              16.
-              在JDBC中，下列哪些方法可用於移動ResultSet的游標？（選擇所有正確答案）
+              16. 以下哪些是JDBC中定義的交易隔離級別？（選擇所有正確答案）
             </h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q16" value="A" />
-                <span class="option-text">(A) next()</span>
+                <span class="option-text">(A) TRANSACTION_NONE</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q16" value="B" />
-                <span class="option-text">(B) previous()</span>
+                <span class="option-text">(B) TRANSACTION_READ_COMMITTED</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q16" value="C" />
-                <span class="option-text">(C) first()</span>
+                <span class="option-text"
+                  >(C) TRANSACTION_READ_UNCOMMITTED</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q16" value="D" />
-                <span class="option-text">(D) last()</span>
+                <span class="option-text">(D) TRANSACTION_REPEATABLE_READ</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q16" value="E" />
-                <span class="option-text">(E) absolute(int row)</span>
+                <span class="option-text">(E) TRANSACTION_SERIALIZABLE</span>
               </label>
             </div>
           </div>
@@ -464,37 +491,40 @@
           <div class="question" id="q17">
             <h3>
               17.
-              關於JDBC的基本驅動類型，以下哪些描述是正確的？（選擇所有正確答案）
+              關於ResultSet的concurrency參數，下列哪些是正確的？（選擇所有正確答案）
             </h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q17" value="A" />
                 <span class="option-text"
-                  >(A) Type 1驅動通過ODBC驅動程式連接到資料庫</span
+                  >(A) CONCUR_READ_ONLY表示結果集是唯讀的</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q17" value="B" />
                 <span class="option-text"
-                  >(B) Type 2驅動部分使用Java實現，部分使用原生代碼</span
+                  >(B) CONCUR_UPDATABLE允許透過ResultSet更新資料庫中的數據</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q17" value="C" />
                 <span class="option-text"
-                  >(C) Type 3驅動完全用Java編寫，使用中間層協議</span
+                  >(C)
+                  若使用CONCUR_UPDATABLE，可以呼叫updateRow()方法更新數據</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q17" value="D" />
                 <span class="option-text"
-                  >(D) Type 4驅動完全用Java編寫，直接與資料庫通信</span
+                  >(D)
+                  若使用CONCUR_UPDATABLE，可以呼叫deleteRow()方法刪除數據</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q17" value="E" />
                 <span class="option-text"
-                  >(E) Type 5驅動是最新的JDBC雲驅動</span
+                  >(E)
+                  若使用CONCUR_UPDATABLE，可以呼叫insertRow()方法插入數據</span
                 >
               </label>
             </div>
@@ -502,30 +532,31 @@
 
           <!-- 問題18 -->
           <div class="question" id="q18">
-            <h3>
-              18.
-              使用Statement、PreparedStatement或CallableStatement時，哪些方法可用於關閉資源？（選擇所有正確答案）
-            </h3>
+            <h3>18. JDBC提供哪些處理大型數據的類型？（選擇所有正確答案）</h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q18" value="A" />
-                <span class="option-text">(A) close()</span>
+                <span class="option-text">(A) BLOB（Binary Large Object）</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q18" value="B" />
-                <span class="option-text">(B) shutdown()</span>
+                <span class="option-text"
+                  >(B) CLOB（Character Large Object）</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q18" value="C" />
-                <span class="option-text">(C) try-with-resources語句</span>
+                <span class="option-text"
+                  >(C) NCLOB（National Character Large Object）</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q18" value="D" />
-                <span class="option-text">(D) finalize()</span>
+                <span class="option-text">(D) ARRAY</span>
               </label>
               <label class="option">
                 <input type="checkbox" name="q18" value="E" />
-                <span class="option-text">(E) release()</span>
+                <span class="option-text">(E) XML</span>
               </label>
             </div>
           </div>
@@ -534,38 +565,37 @@
           <div class="question" id="q19">
             <h3>
               19.
-              關於Connection接口的方法，以下哪些是正確的？（選擇所有正確答案）
+              關於JDBC中的Metadata，下列哪些敘述是正確的？（選擇所有正確答案）
             </h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q19" value="A" />
                 <span class="option-text"
-                  >(A) createStatement() - 創建基本的Statement對象</span
+                  >(A) DatabaseMetaData提供資料庫相關的資訊</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q19" value="B" />
                 <span class="option-text"
-                  >(B) prepareStatement() - 創建預處理語句</span
+                  >(B) ResultSetMetaData提供結果集的資訊</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q19" value="C" />
                 <span class="option-text"
-                  >(C) prepareCall() -
-                  創建用於調用存儲過程的CallableStatement</span
+                  >(C) 可以使用DatabaseMetaData獲取資料庫支援的功能</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q19" value="D" />
                 <span class="option-text"
-                  >(D) setAutoCommit() - 設置事務自動提交模式</span
+                  >(D) 可以使用ResultSetMetaData獲取列的數量和類型</span
                 >
               </label>
               <label class="option">
                 <input type="checkbox" name="q19" value="E" />
                 <span class="option-text"
-                  >(E) disconnect() - 斷開與資料庫的連接</span
+                  >(E) Metadata資訊在程式執行期間不可變更</span
                 >
               </label>
             </div>
@@ -574,30 +604,38 @@
           <!-- 問題20 -->
           <div class="question" id="q20">
             <h3>
-              20.
-              在使用JDBC處理大量數據時，哪些技術可以提高性能？（選擇所有正確答案）
+              20. 關於JDBC
+              Driver的類型，下列哪些敘述是正確的？（選擇所有正確答案）
             </h3>
             <div class="options">
               <label class="option">
                 <input type="checkbox" name="q20" value="A" />
-                <span class="option-text">(A) 批處理更新</span>
+                <span class="option-text"
+                  >(A) Type 1 Driver使用JDBC-ODBC橋接器</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q20" value="B" />
-                <span class="option-text">(B) 預處理語句</span>
+                <span class="option-text"
+                  >(B) Type 2 Driver部分由原生代碼實現</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q20" value="C" />
-                <span class="option-text">(C) 適當的交易管理</span>
+                <span class="option-text"
+                  >(C) Type 3 Driver使用中間層來轉換JDBC調用</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q20" value="D" />
-                <span class="option-text">(D) 連接池</span>
+                <span class="option-text"
+                  >(D) Type 4 Driver直接使用Java實現與資料庫通信</span
+                >
               </label>
               <label class="option">
                 <input type="checkbox" name="q20" value="E" />
                 <span class="option-text"
-                  >(E) 適當的ResultSet類型和並發性設置</span
+                  >(E) Type 5 Driver是最新的雲端JDBC驅動類型</span
                 >
               </label>
             </div>
@@ -623,7 +661,11 @@
         <button id="retry-btn">再試一次</button>
       </div>
     </div>
+    <footer>
+      <p>© 2025 小譚的練習測驗系統</p>
+    </footer>
 
-    <script src="js/quiz2.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/JDBC/quiz3.js"></script>
   </body>
 </html>
