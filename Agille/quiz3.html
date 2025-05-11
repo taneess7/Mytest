@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>敏捷開發與資料庫設計測驗（三）</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- 導覽列 -->
+    <div class="navbar">
+      <div class="container">
+        <a href="../index.html" class="logo">小譚的練習測驗</a>
+        <ul class="menu">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">JAVA</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">JAVAEE</a></li>
+              <li class="dropdown">
+                <a href="../JDBC/index.html" class="dropdown-toggle">JDBC</a>
+                <ul class="dropdown-menu submenu">
+                  <li><a href="../JDBC/quiz1.html">JDBC練習一</a></li>
+                  <li><a href="../JDBC/quiz2.html">JDBC練習二</a></li>
+                  <li><a href="../JDBC/quiz3.html">JDBC練習三</a></li>
+                </ul>
+              </li>
+              <li><a href="#">基礎JAVA</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">敏捷開發</a>
+            <ul class="dropdown-menu">
+              <li><a href="quiz1.html">NoSQL+敏捷 練習一</a></li>
+              <li><a href="quiz2.html">NoSQL+敏捷 練習二</a></li>
+              <li><a href="quiz3.html">NoSQL+敏捷 練習三</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  <div class="quiz-container">
+    <h1>敏捷開發與資料庫設計測驗（三）</h1>
+    <div class="instructions">
+      <p>本測驗共30題，包含20題單選題與10題多選題，請選擇您認為正確的答案，完成後點擊「提交答案」按鈕。</p>
+    </div>
+    <form id="quiz-form">
+      <!-- 單選題 -->
+      <div class="section">
+        <h2>單選題</h2>
+        <div class="question" id="q1">
+          <h3>1. 在敏捷開發流程中，下列哪一項屬於需求階段的工作？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q1" value="A" /> (A) 使用者故事撰寫</label>
+            <label class="option"><input type="radio" name="q1" value="B" /> (B) 程式碼重構</label>
+            <label class="option"><input type="radio" name="q1" value="C" /> (C) 單元測試</label>
+            <label class="option"><input type="radio" name="q1" value="D" /> (D) 持續整合</label>
+          </div>
+        </div>
+        <div class="question" id="q2">
+          <h3>2. 敏捷開發強調下列哪一項價值？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q2" value="A" /> (A) 完整的設計文件</label>
+            <label class="option"><input type="radio" name="q2" value="B" /> (B) 客戶與團隊的緊密合作</label>
+            <label class="option"><input type="radio" name="q2" value="C" /> (C) 嚴格遵守計畫</label>
+            <label class="option"><input type="radio" name="q2" value="D" /> (D) 工具自動化</label>
+          </div>
+        </div>
+        <div class="question" id="q3">
+          <h3>3. 關於 Acceptance Criteria 的敘述，下列何者正確？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q3" value="A" /> (A) 僅供測試人員參考</label>
+            <label class="option"><input type="radio" name="q3" value="B" /> (B) 用來判斷使用者故事是否完成</label>
+            <label class="option"><input type="radio" name="q3" value="C" /> (C) 只在開發結束後撰寫</label>
+            <label class="option"><input type="radio" name="q3" value="D" /> (D) 只需口頭討論不需記錄</label>
+          </div>
+        </div>
+        <div class="question" id="q4">
+          <h3>4. 3C 原則中的「Card」主要代表什麼？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q4" value="A" /> (A) 討論</label>
+            <label class="option"><input type="radio" name="q4" value="B" /> (B) 記錄需求的卡片</label>
+            <label class="option"><input type="radio" name="q4" value="C" /> (C) 測試案例</label>
+            <label class="option"><input type="radio" name="q4" value="D" /> (D) 任務分配</label>
+          </div>
+        </div>
+        <div class="question" id="q5">
+          <h3>5. Kano模型不包含下列哪一種需求？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q5" value="A" /> (A) 基本型需求</label>
+            <label class="option"><input type="radio" name="q5" value="B" /> (B) 期望型需求</label>
+            <label class="option"><input type="radio" name="q5" value="C" /> (C) 魅力型需求</label>
+            <label class="option"><input type="radio" name="q5" value="D" /> (D) 性能型需求</label>
+          </div>
+        </div>
+        <div class="question" id="q6">
+          <h3>6. 估算敏捷使用者故事大小時，團隊最常用的共識工具是？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q6" value="A" /> (A) 投票表決</label>
+            <label class="option"><input type="radio" name="q6" value="B" /> (B) Planning Poker</label>
+            <label class="option"><input type="radio" name="q6" value="C" /> (C) 專家評分</label>
+            <label class="option"><input type="radio" name="q6" value="D" /> (D) 隨機分配</label>
+          </div>
+        </div>
+        <div class="question" id="q7">
+          <h3>7. 關於敏捷開發故事點（Story Point），下列何者正確？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q7" value="A" /> (A) 以天數為單位</label>
+            <label class="option"><input type="radio" name="q7" value="B" /> (B) 用於衡量工作複雜度與規模</label>
+            <label class="option"><input type="radio" name="q7" value="C" /> (C) 只用於測試階段</label>
+            <label class="option"><input type="radio" name="q7" value="D" /> (D) 必須精確到小時</label>
+          </div>
+        </div>
+        <div class="question" id="q8">
+          <h3>8. Release Planning 可依據哪些不同方式進行？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q8" value="A" /> (A) 以日期或功能為導向</label>
+            <label class="option"><input type="radio" name="q8" value="B" /> (B) 以成本為主</label>
+            <label class="option"><input type="radio" name="q8" value="C" /> (C) 以人力為主</label>
+            <label class="option"><input type="radio" name="q8" value="D" /> (D) 以測試為主</label>
+          </div>
+        </div>
+        <div class="question" id="q9">
+          <h3>9. 在 UML Activity Diagram 中，起始節點通常用什麼圖形表示？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q9" value="A" /> (A) 菱形</label>
+            <label class="option"><input type="radio" name="q9" value="B" /> (B) 實心圓</label>
+            <label class="option"><input type="radio" name="q9" value="C" /> (C) 長方形</label>
+            <label class="option"><input type="radio" name="q9" value="D" /> (D) 三角形</label>
+          </div>
+        </div>
+        <div class="question" id="q10">
+          <h3>10. ER 模型的全名是什麼？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q10" value="A" /> (A) Entity Resource Model</label>
+            <label class="option"><input type="radio" name="q10" value="B" /> (B) Entity Relationship Model</label>
+            <label class="option"><input type="radio" name="q10" value="C" /> (C) Event Relation Model</label>
+            <label class="option"><input type="radio" name="q10" value="D" /> (D) Entry Requirement Model</label>
+          </div>
+        </div>
+        <div class="question" id="q11">
+          <h3>11. ER設計時，遇到多對多關係應如何轉換？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q11" value="A" /> (A) 直接建立外鍵</label>
+            <label class="option"><input type="radio" name="q11" value="B" /> (B) 新增中介實體並建立兩個一對多</label>
+            <label class="option"><input type="radio" name="q11" value="C" /> (C) 忽略該關係</label>
+            <label class="option"><input type="radio" name="q11" value="D" /> (D) 只保留一方</label>
+          </div>
+        </div>
+        <div class="question" id="q12">
+          <h3>12. 下列哪一項不是瀑布模式的缺點？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q12" value="A" /> (A) 需求不明確導致後續不確定</label>
+            <label class="option"><input type="radio" name="q12" value="B" /> (B) 初期錯誤容易擴大</label>
+            <label class="option"><input type="radio" name="q12" value="C" /> (C) 可讓使用者早期體驗系統</label>
+            <label class="option"><input type="radio" name="q12" value="D" /> (D) 系統可能不符需求</label>
+          </div>
+        </div>
+        <div class="question" id="q13">
+          <h3>13. 漸增模式開發的優點，下列何者錯誤？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q13" value="A" /> (A) 容易管理小增量</label>
+            <label class="option"><input type="radio" name="q13" value="B" /> (B) 初期錯誤容易連鎖擴大</label>
+            <label class="option"><input type="radio" name="q13" value="C" /> (C) 使用者可提前參與</label>
+            <label class="option"><input type="radio" name="q13" value="D" /> (D) 容易應對需求變動</label>
+          </div>
+        </div>
+        <div class="question" id="q14">
+          <h3>14. Incremental 的主要概念是？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q14" value="A" /> (A) 一次性開發完畢</label>
+            <label class="option"><input type="radio" name="q14" value="B" /> (B) 將大專案拆分為多個小專案逐步完成</label>
+            <label class="option"><input type="radio" name="q14" value="C" /> (C) 只做測試</label>
+            <label class="option"><input type="radio" name="q14" value="D" /> (D) 只做需求分析</label>
+          </div>
+        </div>
+        <div class="question" id="q15">
+          <h3>15. Iteration 的意義為何？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q15" value="A" /> (A) 一次性開發</label>
+            <label class="option"><input type="radio" name="q15" value="B" /> (B) 重複進行分析、設計、測試等循環</label>
+            <label class="option"><input type="radio" name="q15" value="C" /> (C) 只做需求分析</label>
+            <label class="option"><input type="radio" name="q15" value="D" /> (D) 只做測試</label>
+          </div>
+        </div>
+        <div class="question" id="q16">
+          <h3>16. 下列哪一項不是 User Role 的屬性？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q16" value="A" /> (A) 使用頻率</label>
+            <label class="option"><input type="radio" name="q16" value="B" /> (B) 軟硬體專業度</label>
+            <label class="option"><input type="radio" name="q16" value="C" /> (C) 產品價格</label>
+            <label class="option"><input type="radio" name="q16" value="D" /> (D) 類似軟體熟悉度</label>
+          </div>
+        </div>
+        <div class="question" id="q17">
+          <h3>17. Release Planning 不包含下列哪一項？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q17" value="A" /> (A) 排定故事優先順序</label>
+            <label class="option"><input type="radio" name="q17" value="B" /> (B) 估算速度</label>
+            <label class="option"><input type="radio" name="q17" value="C" /> (C) 決定產品價格</label>
+            <label class="option"><input type="radio" name="q17" value="D" /> (D) 決定迭代時間長度</label>
+          </div>
+        </div>
+        <div class="question" id="q18">
+          <h3>18. 資料庫設計的第一步是？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q18" value="A" /> (A) 需求的搜集與分析</label>
+            <label class="option"><input type="radio" name="q18" value="B" /> (B) 概想資料庫設計</label>
+            <label class="option"><input type="radio" name="q18" value="C" /> (C) 資料模型轉換</label>
+            <label class="option"><input type="radio" name="q18" value="D" /> (D) 實際資料庫設計</label>
+          </div>
+        </div>
+        <div class="question" id="q19">
+          <h3>19. ER模型設計一對多關係時，正確做法為何？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q19" value="A" /> (A) 合併成一個表格</label>
+            <label class="option"><input type="radio" name="q19" value="B" /> (B) 在「多」方設FK連到「一」方PK</label>
+            <label class="option"><input type="radio" name="q19" value="C" /> (C) 忽略關係</label>
+            <label class="option"><input type="radio" name="q19" value="D" /> (D) 只保留「一」方</label>
+          </div>
+        </div>
+        <div class="question" id="q20">
+          <h3>20. 正規化的主要目的為何？</h3>
+          <div class="options">
+            <label class="option"><input type="radio" name="q20" value="A" /> (A) 增加資料庫容量</label>
+            <label class="option"><input type="radio" name="q20" value="B" /> (B) 維持資料正確性與一致性</label>
+            <label class="option"><input type="radio" name="q20" value="C" /> (C) 提高查詢速度</label>
+            <label class="option"><input type="radio" name="q20" value="D" /> (D) 減少維護人力</label>
+          </div>
+        </div>
+      </div>
+      <!-- 多選題 -->
+      <div class="section">
+        <h2>多選題</h2>
+        <div class="question" id="q21">
+          <h3>21. 敏捷開發的價值觀有哪些？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q21" value="A" /> (A) 個人與互動</label>
+            <label class="option"><input type="checkbox" name="q21" value="B" /> (B) 可用的軟體</label>
+            <label class="option"><input type="checkbox" name="q21" value="C" /> (C) 與客戶合作</label>
+            <label class="option"><input type="checkbox" name="q21" value="D" /> (D) 回應變化</label>
+          </div>
+        </div>
+        <div class="question" id="q22">
+          <h3>22. 關於 Acceptance Criteria，哪些描述正確？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q22" value="A" /> (A) 設定故事完成標準</label>
+            <label class="option"><input type="checkbox" name="q22" value="B" /> (B) 由客戶方撰寫</label>
+            <label class="option"><input type="checkbox" name="q22" value="C" /> (C) Coding前撰寫</label>
+            <label class="option"><input type="checkbox" name="q22" value="D" /> (D) 僅在測試階段撰寫</label>
+          </div>
+        </div>
+        <div class="question" id="q23">
+          <h3>23. 3C 原則包含哪些內容？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q23" value="A" /> (A) Card（卡片）</label>
+            <label class="option"><input type="checkbox" name="q23" value="B" /> (B) Conversation（交談）</label>
+            <label class="option"><input type="checkbox" name="q23" value="C" /> (C) Confirmation（確認）</label>
+            <label class="option"><input type="checkbox" name="q23" value="D" /> (D) Calculation（計算）</label>
+          </div>
+        </div>
+        <div class="question" id="q24">
+          <h3>24. 下列哪些屬於Kano模型的需求分類？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q24" value="A" /> (A) 基本型需求</label>
+            <label class="option"><input type="checkbox" name="q24" value="B" /> (B) 期望型需求</label>
+            <label class="option"><input type="checkbox" name="q24" value="C" /> (C) 魅力型需求</label>
+            <label class="option"><input type="checkbox" name="q24" value="D" /> (D) 性能型需求</label>
+          </div>
+        </div>
+        <div class="question" id="q25">
+          <h3>25. Release Planning 的主要工作有哪些？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q25" value="A" /> (A) 決定滿足條件</label>
+            <label class="option"><input type="checkbox" name="q25" value="B" /> (B) 估算故事大小</label>
+            <label class="option"><input type="checkbox" name="q25" value="C" /> (C) 決定迭代時間長度</label>
+            <label class="option"><input type="checkbox" name="q25" value="D" /> (D) 決定產品價格</label>
+          </div>
+        </div>
+        <div class="question" id="q26">
+          <h3>26. 資料庫設計步驟包含哪些？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q26" value="A" /> (A) 需求的搜集與分析</label>
+            <label class="option"><input type="checkbox" name="q26" value="B" /> (B) 概想資料庫設計</label>
+            <label class="option"><input type="checkbox" name="q26" value="C" /> (C) 資料模型轉換</label>
+            <label class="option"><input type="checkbox" name="q26" value="D" /> (D) 實際資料庫設計</label>
+          </div>
+        </div>
+        <div class="question" id="q27">
+          <h3>27. ER設計一對多關係時，需做哪些動作？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q27" value="A" /> (A) 將「一」方PK複製到「多」方</label>
+            <label class="option"><input type="checkbox" name="q27" value="B" /> (B) 設為FK</label>
+            <label class="option"><input type="checkbox" name="q27" value="C" /> (C) 合併為一個表格</label>
+            <label class="option"><input type="checkbox" name="q27" value="D" /> (D) 忽略關係</label>
+          </div>
+        </div>
+        <div class="question" id="q28">
+          <h3>28. 正規化的目標有哪些？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q28" value="A" /> (A) 維持資料正確性</label>
+            <label class="option"><input type="checkbox" name="q28" value="B" /> (B) 減少資料異常</label>
+            <label class="option"><input type="checkbox" name="q28" value="C" /> (C) 增加查詢速度</label>
+            <label class="option"><input type="checkbox" name="q28" value="D" /> (D) 確保資料一致性</label>
+          </div>
+        </div>
+        <div class="question" id="q29">
+          <h3>29. 軟體開發的三大原則有哪些？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q29" value="A" /> (A) 改變世界是產品開發的目標</label>
+            <label class="option"><input type="checkbox" name="q29" value="B" /> (B) 客戶得到想要的東西公司才能成功</label>
+            <label class="option"><input type="checkbox" name="q29" value="C" /> (C) 最小化產出最大化成果和影響</label>
+            <label class="option"><input type="checkbox" name="q29" value="D" /> (D) 功能越多越好</label>
+          </div>
+        </div>
+        <div class="question" id="q30">
+          <h3>30. User Story 標準格式包含哪些要素？</h3>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="q30" value="A" /> (A) Who（誰）</label>
+            <label class="option"><input type="checkbox" name="q30" value="B" /> (B) What（做什麼）</label>
+            <label class="option"><input type="checkbox" name="q30" value="C" /> (C) Why（為什麼）</label>
+            <label class="option"><input type="checkbox" name="q30" value="D" /> (D) How（怎麼做）</label>
+          </div>
+        </div>
+      </div>
+      <div class="submit-container">
+        <button type="submit" id="submit-btn">提交答案</button>
+      </div>
+    </form>
+    <div id="results" class="results-container hidden">
+      <h2>測驗結果</h2>
+      <div class="score-display">
+        <span id="score">0</span> / <span id="total">30</span> 題正確
+      </div>
+      <div class="percentage">正確率: <span id="percentage">0%</span></div>
+      <div id="detailed-results"></div>
+      <button id="retry-btn">再試一次</button>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 小譚的練習測驗系統</p>
+  </footer>
+  <script src="../js/menu.js"></script>
+  <script src="../js/Agille/quiz3.js"></script>
+</body>
+</html>
